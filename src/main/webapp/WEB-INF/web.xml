@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>bigdb.root</param-value>
+	</context-param>
+  <servlet>
+    <servlet-name>DataSearchServlet</servlet-name>
+    <servlet-class>com.bigdb.server.servlet.DataSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>com.bigdb.server.servlet.IndexServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>DataSearchServlet</servlet-name>
+    <url-pattern>/search.esp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index.esp</url-pattern>
+  </servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.esp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/jsp/500.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/WEB-INF/jsp/500.jsp</location>
+	</error-page>
+</web-app>
